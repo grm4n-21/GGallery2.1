@@ -26,6 +26,10 @@ const App: React.FC = () => {
     }
   }, []);
 
+  const updatePhotos = (updatedPhotos: iPhoto[]) => {
+    setPhotos(updatedPhotos);
+  };
+  
   const handlePhotoAdded = (newPhoto: iPhoto) => {
     const newPhotos = [...photos, newPhoto];
     setPhotos(newPhotos);
@@ -35,7 +39,7 @@ const App: React.FC = () => {
     <div>
       <Header openModal={openModal} />
       <Container>
-        <PhotoGallery photos={photos} />
+      <PhotoGallery photos={photos} updatePhotos={updatePhotos} />      
       </Container>
       <AddPhotoForm
         onPhotoAdded={handlePhotoAdded}
